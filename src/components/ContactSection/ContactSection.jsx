@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -24,18 +25,28 @@ const ContactSection = () => {
   return (
     <section id="contact" className="bg-gray-50 py-20">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-3xl font-semibold text-black mb-4">Contact Us</h2>
           <p className="text-lg text-gray-700">
             Have any questions or want to discuss your next project? Fill out
             the form below, and we'll get back to you as soon as possible.
           </p>
-        </div>
+        </motion.div>
 
         {/* Contact Section Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left Column - Text */}
-          <div className="flex flex-col items-center justify-center text-center md:text-left">
+          <motion.div
+            className="flex flex-col items-center justify-center text-center md:text-left"
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
             <h3 className="text-2xl font-semibold mb-4 text-black">
               We're here to help you!
             </h3>
@@ -44,10 +55,15 @@ const ContactSection = () => {
               about our services, feel free to get in touch with us using the
               form on the right. We look forward to connecting with you soon!
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Column - Form */}
-          <div className="bg-white p-8 rounded-lg shadow-lg">
+          <motion.div
+            className="bg-white p-8 rounded-lg shadow-lg"
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
             <form onSubmit={handleSubmit}>
               {/* Name Input */}
               <div className="mb-6">
@@ -116,7 +132,7 @@ const ContactSection = () => {
                 </button>
               </div>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

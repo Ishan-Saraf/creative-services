@@ -1,22 +1,27 @@
 import React from "react";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 function Footer() {
   return (
     <footer className="bg-white w-full border-t border-black text-black py-12 mt-20">
       <div className="px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {/* Animated Grid Layout */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           {/* Column 1: Company Info */}
-          <div>
+          <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
             <h3 className="text-xl font-semibold mb-4">Creative Services</h3>
             <p className="text-lg mb-4">
-              We help businesses build exceptional experiences with high-quality
-              apps and services.
+              We help businesses build exceptional experiences with high-quality apps and services.
             </p>
             <div className="flex justify-center space-x-4">
               <a
@@ -44,10 +49,14 @@ function Footer() {
                 <FaLinkedinIn size={24} />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <motion.div
+            initial={{ x: 200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul>
               <li className="mb-2">
@@ -91,10 +100,14 @@ function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 3: Contact Information */}
-          <div>
+          <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
             <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
             <ul>
               <li className="mb-2">
@@ -107,21 +120,23 @@ function Footer() {
               </li>
               <li className="mb-2">
                 <span className="text-lg">Address: </span>
-                <span className="text-lg">
-                  123 Creative Street, City, Country
-                </span>
+                <span className="text-lg">123 Creative Street, City, Country</span>
               </li>
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Footer Bottom */}
-        <div className="mt-12 border-t border-black pt-6 text-center">
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mt-12 border-t border-black pt-6 text-center"
+        >
           <p className="text-lg text-black">
-            &copy; {new Date().getFullYear()} Creative Services. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Creative Services. All rights reserved.
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
